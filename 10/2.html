@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'receipt'></div>
+    
+    <script>
+
+        const receipt = document.getElementById('receipt');
+
+        const carArray = [{
+            name: "car1",
+            price: 20,
+            quantity: 2
+        },{
+            name: "car2",
+            price: 10,
+            quantity: 3
+        }]
+
+        function carTotal(array){
+            let total = 0;
+            array.forEach( function (element) {
+                total += (element.price * element.quantity);
+            });
+            return total;
+        }
+
+        function displayReceipt(array){
+            document.getElementById('receipt').innerHTML= "";
+            array.forEach(function (element){
+                const newDiv = document.createElement('div');
+                newDiv.innerText = element.name + " $" + element.price + " * " + element.quantity + " = $" 
+                + (element.price * element.quantity);
+                receipt.appendChild(newDiv);
+                
+            });
+            const newDiv = document.createElement('div');
+            newDiv.innerText = "Cart total = " + carTotal(array);
+            receipt.appendChild(newDiv);
+            
+        }
+        displayReceipt(carArray);
+        
+       
+    </script>
+</body>
+</html>

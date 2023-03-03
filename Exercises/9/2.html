@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises 2</title>
+</head>
+<body>
+
+    <input id = "box"> 
+    <button onclick="convert('cm');">CM to Inches</button>
+    <button onclick="convert('in');">Inches to CM</button>
+    <div id = "result"></div>
+
+    <script>
+        const text = document.getElementById('box');
+        const result = document.getElementById('result')
+
+        function convert(metric){
+            if (metric == 'cm') {
+                result.innerHTML="";
+                const value = text.value;
+                const newDiv = document.createElement("div");
+                const newValue = value / 2.54;
+                
+                console.log(newValue);
+                console.log(value)
+                newDiv.innerText = newValue;
+                result.appendChild(newDiv);
+            }
+            if(metric == "in"){
+                result.innerHTML="";
+                const value = text.value;
+                const newDiv = document.createElement("div");
+                const newValue = Number(value) * 2.54;
+                newDiv.innerText = newValue;
+                result.appendChild(newDiv);
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

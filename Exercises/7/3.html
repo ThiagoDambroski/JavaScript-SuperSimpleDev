@@ -7,10 +7,20 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
-        let element = document.createElement("button")
-        element.innerText = "Click Me"
-        document.body.appendChild(element);
+
+        let array = new Array(1,2,3,4);
+        function arraySum (array){
+            let sum = 0;
+            array.forEach(function(element) {
+                sum += element;
+            });
+
+            return sum;
+        };
+        console.log(arraySum(array));
+
     </script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'above'></div>
+    <div id="total"></div>
+
+    <script>
+        let total = 0;
+        function createCart(obj){
+            
+            const cha = Object.keys(obj);
+            cha.forEach(function (element){
+                const newDiv = document.createElement("div");
+                newDiv.innerText = element + ' $' + obj[element];
+                const button = document.createElement('button');
+                button.innerText= 'Add';
+                button.style = 'margin-left: 12px;'
+                newDiv.appendChild(button);
+                const above = document.getElementById('above');
+                above.appendChild(newDiv);
+                button.onclick = function (){
+                    const bla = document.getElementById('total');  
+                    total += obj[element];
+                    bla.innerText = 'Total = ' + total;
+                    
+                    
+                };
+                
+
+            }); 
+                    
+        }
+
+
+        createCart({Apple: 3, Orange: 4, Egg:2});
+
+    </script>
+
+</body>
+</html>

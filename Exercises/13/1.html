@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const list = [2,1,3,-8,0,8,14,-3];
+
+        function operationNumbers(list){
+            let maxNumber = 0;
+            let minNumber = 0;
+            let minNumberAboveZero;
+            list.forEach(function (element) {
+                if(minNumberAboveZero == null && element > 0){
+                    minNumberAboveZero = element;
+                }
+
+                if(element >= maxNumber){
+                    maxNumber = element;
+                }
+                if(element <= minNumber){
+                    minNumber = element;
+                }
+                if(element <= minNumberAboveZero && element > 0){
+                    minNumberAboveZero = element;
+                }
+        
+            });
+            const array = [maxNumber,minNumber,minNumberAboveZero];
+            return array;
+
+        }
+
+        console.log('Max number = ' + operationNumbers(list)[0]);
+        console.log('Min number = ' + operationNumbers(list)[1]);
+        console.log('Min number Above zero = ' + operationNumbers(list)[2]);
+
+    </script>
+</body>
+</html>

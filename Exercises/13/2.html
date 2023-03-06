@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const list = ['apple','banana','apple','orange','apple','cherry'];
+        
+        function pickApples(list,arg){
+            let array = new Array();
+            let count;
+            let countOrange;
+            if(arg === 'apple'){
+                count = 0;
+                array = list.filter(function (element) {
+                    if(element === "apple" && count < 2){
+                        count ++;
+                        return false
+                    }else{
+                        return true;
+                    }
+                });
+            }
+            if(arg === 'appleOrange'){
+                count = 0;
+                countOrange = 0;
+                array = list.filter(function (element){
+                    if(element === 'apple' && count < 2){
+                        count ++;
+                        return false;
+                    } else if (element === 'orange' && countOrange < 1){
+                        count ++;
+                        return false
+                    }else{
+                        return true;
+                    }
+
+                });
+
+                
+            }
+
+            return array;
+           
+        }
+
+        console.log(pickApples(list,'apple'));
+        console.log(pickApples(list,'appleOrange'));
+
+    </script>
+</body>
+</html>

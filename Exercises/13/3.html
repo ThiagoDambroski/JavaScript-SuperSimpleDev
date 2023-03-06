@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+    const list = ['apple','banana','apple','orange','apple','cherry'];
+
+        function pickFruits(list){
+            let reverse = list.reverse();
+            let count = 0;
+            reverse = reverse.filter(function (element){
+                if(element === 'apple' && count < 2){
+                    count ++;
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
+            return reverse.reverse();
+        }
+    console.log(pickFruits(list));
+
+    </script>
+</body>
+</html>

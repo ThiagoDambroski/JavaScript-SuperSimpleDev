@@ -19,20 +19,34 @@
      <script>
 
         //Model
-        let todos = [{
-            title: 'Get groceries',
-            dueDate: '2021-10-04',
-            id: 'id1'
-        },{
-            title: 'Wash car',
-            dueDate: '2021-10-04',
-            id:'id2'
-        },{
-            title: 'Make dinner',
-            dueDate: '2021-10-04',
-            id: 'id3'
+
+        let todos;
+
+        const savedTodos = JSON.parse(localStorage.getItem('todos'));
+
+        if(Array.isArray(savedTodos)){
+            console.log('foi');
+            todos = savedTodos;
+        }else{
+            todos = [{
+                title: 'Get groceries',
+                dueDate: '2021-10-04',
+                id: 'id1'
+            },{
+                title: 'Wash car',
+                dueDate: '2021-10-04',
+                id:'id2'
+            },{
+                title: 'Make dinner',
+                dueDate: '2021-10-04',
+                id: 'id3'
         }];
 
+
+        }
+
+
+        
         //Creates a todo
         function createTodo(title,dueDate){
             const id = '' + new Date().getDate();
@@ -43,7 +57,12 @@
                 id: id
             });
 
+            saveTodos();
+
         }
+
+
+   
 
         //Delete a todo
 
@@ -56,10 +75,16 @@
                   }
             });
 
+            saveTodos();
+
+        }
+
+        function saveTodos(){
+            localStorage.setItem('todos',JSON.stringify(todos));
         }
 
         //view
-        render();
+       
 
         function render(){
 
@@ -81,6 +106,8 @@
         });
 
         }
+
+        render();
         //controller
 
       
